@@ -60,9 +60,9 @@ sync_data_up:
 
 {% if cookiecutter.environment_manager != 'none' %}
 ## Set up python interpreter environment
-create_environment:
+create-environment:
 	{% if cookiecutter.environment_manager == 'conda' %}
-	conda create --name $(PROJECT_NAME) python={{ cookiecutter.python_version_number }}{% if cookiecutter.dependency_file == 'environment.yml' %} -f environment.yml{% endif %}
+	conda env create --name $(PROJECT_NAME) python={{ cookiecutter.python_version_number }}{% if cookiecutter.dependency_file == 'environment.yml' %} -f environment.yml{% endif %}
 	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"
 	{% elif cookiecutter.environment_manager == 'virtualenv' %}
 	@bash -c "source `which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER)"
