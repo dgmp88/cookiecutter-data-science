@@ -22,6 +22,7 @@ requirements:
 data: requirements
 	$(PYTHON_INTERPRETER) {{ cookiecutter.module_name }}/data/make_dataset.py
 
+
 ## Delete all compiled Python files
 clean:
 	find . -type f -name "*.py[co]" -delete
