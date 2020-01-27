@@ -32,6 +32,10 @@ clean:
 lint:
 	flake8 {{ cookiecutter.module_name }}
 
+## Format using black
+format:
+	black {{ cookiecutter.module_name }}
+
 {% if 's3' in cookiecutter.dataset_storage %}
 ## Download Data from storage system
 sync_data_down:
