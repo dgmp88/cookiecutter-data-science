@@ -1,16 +1,12 @@
 import os
 
 packages = [
-    'flake8',
-    'pathlib2',
+    'black',
     'pip',
     'setuptools',
-    'wheel',
 ]
 
 pip_only_packages = [
-    'awscli',
-    'python-dotenv',
 ]
 
 {% if 's3' in cookiecutter.dataset_storage %}
