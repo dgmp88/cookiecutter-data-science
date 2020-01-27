@@ -12,16 +12,16 @@
         {"gcs": {"bucket": "bucket-name"}}
     ],
     "environment_manager" : [
-        "none",
         "conda",
+        "none",
         "virtualenv",
         "pipenv"
     ],
     "dependency_file": [
+        "environment.yml",
         "none",
         "requirements.txt",
-        "environment.yml",
         "Pipfile"
     ],
-    "open_source_license": ["MIT", "BSD-3-Clause", "No license file"]
+    "open_source_license": [ "No license file", "MIT", "BSD-3-Clause"]
 }
