@@ -32,7 +32,7 @@ clean:
 lint:
 	flake8 {{ cookiecutter.module_name }}
 
-{% if cookiecutter.dataset_storage.s3 %}
+{% if 's3' in cookiecutter.dataset_storage %}
 ## Download Data from storage system
 sync_data_down:
 	{% if cookiecutter.dataset_storage.s3 %}
@@ -63,7 +63,7 @@ sync_data_up:
 create_environment:
 	{% if cookiecutter.environment_manager == 'conda' %}
 	conda create --name $(PROJECT_NAME) python={{ cookiecutter.python_version_number }}{% if cookiecutter.dependency_file == 'environment.yml' %} -f environment.yml{% endif %}
-	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"	
+	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"
 	{% elif cookiecutter.environment_manager == 'virtualenv' %}
 	@bash -c "source `which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER)"
 	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"

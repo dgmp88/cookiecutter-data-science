@@ -13,7 +13,7 @@ pip_only_packages = [
     'python-dotenv',
 ]
 
-{% if cookiecutter.dataset_storage.s3 %}
+{% if 's3' in cookiecutter.dataset_storage %}
 packages += ['awscli']
 {% endif %}
 
@@ -23,7 +23,7 @@ def write_dependencies():
     if dependencies == 'requirements.txt':
         with open(dependencies, 'w') as f:
             lines = sorted(packages + pip_only_packages)
-            
+
             lines += [
                 ""
                 "-e ."
