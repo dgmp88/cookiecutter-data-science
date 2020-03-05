@@ -4,6 +4,8 @@ packages = [
     'black',
     'pip',
     'setuptools',
+    'tqdm',
+    'pyyaml'
 ]
 
 pip_only_packages = [
