@@ -1,8 +1,4 @@
-
-#################################################################################
-# COMMANDS                                                                      #
-#################################################################################
-
+.PHONY: data
 
 ## Make Dataset
 data: requirements
@@ -12,7 +8,6 @@ data: requirements
 install-package:
 	# This does a local install so updates are recognised on the fly
 	pip install -e ./
-
 {% if 's3' in cookiecutter.dataset_storage %}
 ## Download Data from storage system
 sync_data_down:
@@ -38,7 +33,6 @@ sync_data_up:
 	gsutil cp data/ {{ cookiecutter.dataset_storage.gcs.bucket }}/data/
 	{% endif %}
 {% endif %}
-
 {% if cookiecutter.environment_manager == 'conda' %}
 conda-import:
 	conda env create -f environment.yml
@@ -46,4 +40,3 @@ conda-import:
 conda-export:
 		conda env export --no-builds > environment.yml
 {% endif %}
-
